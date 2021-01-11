@@ -2,7 +2,7 @@ import re
 
 def solution(dartResult):
     num_list = list(map(int, re.compile(r'\d+').findall(dartResult)))
-    dart_list = re.compile(r'[A-Z]\*?\#?').findall(dartResult)
+    dart_list = re.compile(r'[A-Z]\*?#?').findall(dartResult)
 
     for i in range(3):
         
