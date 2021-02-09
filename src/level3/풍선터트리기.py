@@ -1,20 +1,15 @@
-from collections import deque
-
-def make_mins(a, min1=float('inf'), min2=float('inf')):
-    pre_mins, post_mins = deque(), deque()
-    for i in range(len(a)-2):
-        min1 = min(min1, a[i])
-        pre_mins.append(min1)
-    for i in range(len(a)-2, 0, -1):
-        min2 = min(min2, a[i])
-        post_mins.appendleft(min2)
-    return pre_mins, post_mins
-
 def solution(a, answer=2):
-    pres, posts = make_mins(a)
-    for i, pre, post in zip(range(1, len(a) - 1), pres, posts):
-        answer += int(a[i] <= pre or a[i] <= post)
-    return answer
+    center = a.index(min(a))
+    left_min, right_min = a[0], a[-1]
+
+    for idx in range(1, center):
+        answer += left_min > a[idx]
+        left_min = min(left_min, a[idx])
+    for idx in range(len(a)-2, center, -1):
+        answer += right_min > a[idx]
+        right_min = min(right_min, a[idx])
+
+    return answer if center in [0, len(a)-1] else answer + 1
 
 if __name__ == '__main__':
     print(solution([-16,27,65,-2,58,-92,-71,-68,-61,-33]))
