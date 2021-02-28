@@ -26,9 +26,8 @@ def solution(skills, stree):
     graph = get_graph(stree)
     answer = []
     for node in skills:
-        if node not in singles:
-            continue
-        answer.extend(dfs(graph, node))
+        if node in singles:
+            answer.extend(dfs(graph, node))
     return answer
 
 

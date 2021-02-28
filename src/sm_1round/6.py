@@ -1,13 +1,16 @@
-def search(arr, left, right):
-    if right - left == 1:
-        return max(arr[left], arr[right])
-    mid = (right + left) // 2
-    left_max =  max(arr[left: mid + 1]) + search(arr, mid + 1, right)
-    right_max = max(arr[mid + 1: right]) + search(arr, left, mid)
+def search(tree, a, b):
+    if a >= len(tree) // 2:
+        return tree[a] + tree[b]
+    left_max = tree[a] + search(tree, b * 2, b * 2 + 1)
+    right_max = tree[b] + search(tree, a * 2, b * 2 + 1)
     return max(left_max, right_max)
 
 def solution(arr):
-    return search(arr, 0, len(arr)-1)
+    tree = []
+    while len(arr) > 2:
+        arr = [max(arr[idx], arr[idx + 1]) for idx in range(0, len(arr) - 1, 2)]
+        tree = arr + tree
+    return search([0,0] + tree, 2, 3)
 
 if __name__ == '__main__':
     print(solution([1,3,10,9,6,2,3,2]))
