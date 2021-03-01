@@ -5,7 +5,7 @@ def get_max_pay(times, total_time, n):
         return get_max_pay(times, total_time, n-1)
     else:
         return max(
-            times[n-1] + get_max_pay(times, total_time-times[n-1], n-1),
+            times[n-1] + get_max_pay(times, total_time - times[n-1], n-1),
             get_max_pay(times, total_time, n - 1)
         )
 
