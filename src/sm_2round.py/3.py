@@ -23,7 +23,6 @@ def get_max(left, right):
         right_max = max(quarters)
     return left_max + right_max
 
-
 def solution(arr):
     n = len(arr)
     return max(
