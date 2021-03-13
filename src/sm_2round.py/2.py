@@ -16,5 +16,5 @@ def solution(arr):
 
 
 if __name__ == '__main__':
-    print(solution([3,5,-1,-2,4,4,3,-2,-3,-2]))
+    print(solution([3,5,-1,-2,4,4,3,-2,-3,0]))
     print(solution([3, 5, -1, -2, 4, 4, 3, 1, -3, -2]))
