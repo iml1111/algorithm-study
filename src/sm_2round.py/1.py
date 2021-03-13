@@ -1,4 +1,3 @@
-from pprint import pprint
 from collections import deque
 
 def is_way(node):
@@ -10,7 +9,6 @@ def get_start_idx(board, n, m):
 			if board[idx][jdx] == '3':
 				return idx, jdx
 	raise RuntimeError("3이 없음")
-
 
 def solution(board):
 	board = [list(i) for i in board]
