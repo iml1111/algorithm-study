@@ -2,8 +2,8 @@ def solution(tri):
     for i in range(1, len(tri)):
         for j in range(i + 1):
             tri[i][j] = max(
-                tri[i - 1][j - 1] + tri[i][j] if j > 0 else -1,
-                tri[i - 1][j] + tri[i][j] if j <= i - 1 else -1
+                tri[i-1][j-1] + tri[i][j] if j > 0 else -1,
+                tri[i-1][j] + tri[i][j] if j <= i-1 else -1
             )
     return max(tri[-1])
 
