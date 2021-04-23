@@ -6,7 +6,7 @@ input = sys.stdin.readline
 def solution(n, cost):
     time, cnt, heap,  = 0, 0, [(i, i) for i in cost]
     heapify(heap)
-    while cnt < n:
+    while cnt < n: # 아직 모두가 놀이기구를 타지 않은 경우
         time, cost_i = heappop(heap)
         heappush(heap, (time + cost_i, cost_i))
         cnt += 1
