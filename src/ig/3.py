@@ -13,6 +13,7 @@ def refine_pad(input_pad):
 			else:
 				input_pad[j][i] = area_id
 		area_id += 1
+
 	area_id = 0
 	for i in range(len(input_pad)):
 		for j in range(len(input_pad[0])):
@@ -25,29 +26,30 @@ def refine_pad(input_pad):
 
 
 def tracking(
-	num, start_i,
-	max_horizon_num, vertical_area, pad
+		num, start_i,
+		max_horizon, vertical_area,
+		pad, pad_len
 ):
 	p_num, case = num, 1
-	for i in range(start_i, len(pad)):
-		if pad[i][0] > max_horizon_num and pad[i][1] not in vertical_area:
+	for i in range(start_i, pad_len):
+		if pad[i][0] > max_horizon and pad[i][1] not in vertical_area:
 			p_num_i, case_i = tracking(
 				num + 1, i + 1,
 				pad[i][0],
-				vertical_area | {pad[i][1]},
-				pad
+				vertical_area + [pad[i][1]],
+				pad, pad_len
 			)
 			if p_num < p_num_i:
 				p_num, case = p_num_i, case_i
 			elif p_num == p_num_i:
 				case += case_i
-
 	return (p_num, case)
 
 
 def solution(input_pad):
+	pad = refine_pad(input_pad)
 	return "최대 %s명, %s가지" % tracking(
-		0, 0, -1, set(), refine_pad(input_pad)
+		0, 0, -1, [], pad, len(pad)
 	)
 
 
