@@ -36,11 +36,11 @@ def refine_pad(input_pad):
 
 def solution(input_pad):
 	p_num, case = 0, 0
-	pad, pad_len, last_horizon, max_vertical_len = refine_pad(input_pad)
+	pad, pad_len, last_horizon, max_verticals_len = refine_pad(input_pad)
 
 	def tracking(num, start_i, horizon, verticals, vertical_len):
-		nonlocal p_num, case, pad, pad_len, last_horizon, max_vertical_len
-		if horizon < last_horizon and vertical_len < max_vertical_len:
+		nonlocal p_num, case, pad, pad_len, last_horizon, max_verticals_len
+		if horizon < last_horizon and vertical_len < max_verticals_len:
 			for i in range(start_i, pad_len):
 				h, v, next_i = pad[i]
 				if v not in verticals:
