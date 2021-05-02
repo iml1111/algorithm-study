@@ -7,10 +7,9 @@ def solution(ads):
 		target, candidates = heappop(ads), []
 		while ads and ads[0][0] < target[0] + 5:
 			candidates.append(heappop(ads))
-		end_time = target[0] + 5
 		for cand in candidates:
-			wait += (end_time - cand[0]) * (-cand[1])
-			heappush(ads, [end_time, cand[1]])
+			wait += (target[0] + 5 - cand[0]) * (-cand[1])
+			heappush(ads, [target[0] + 5, cand[1]])
 	return wait
 
 

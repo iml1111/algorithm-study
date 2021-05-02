@@ -13,7 +13,6 @@ def solution(arr):
 	return [answer[i] if i in answer else -1 for i in arr]
 
 
-
 if __name__ == '__main__':
 	print(solution([3,5,4,1,2]))
 	print(solution([1,2,3,4,5]))

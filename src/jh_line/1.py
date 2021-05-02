@@ -5,7 +5,6 @@ MAP = {
 	')': '('
 }
 
-
 def solution(string):
 	if string[0] in MAP.keys():
 		return 0
