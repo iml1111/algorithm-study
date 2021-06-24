@@ -1,5 +1,3 @@
-from pprint import pprint
-
 def make_tree(enroll, referral):
     tree = {'-': {'pay': 0, 'parent': None}}
     for enr, ref in zip(enroll, referral):
@@ -8,13 +6,11 @@ def make_tree(enroll, referral):
 
 def piramid(tree, node, amount):
     amount_10 = amount // 10
-    amount_90 = amount - amount_10
-    tree[node]['pay'] += amount_90
+    tree[node]['pay'] += amount - amount_10
     if tree[node]['parent'] is not None:
         piramid(tree, tree[node]['parent'], amount_10)
     else:
         tree[node]['pay'] += amount_10
-
 
 def solution(enroll, referral, seller, amount):
     tree = make_tree(enroll, referral)
@@ -25,9 +21,8 @@ def solution(enroll, referral, seller, amount):
 if __name__ == '__main__':
     print(solution(
         ["john", "mary", "edward", "sam", "emily", "jaimie", "tod", "young"],
-        ["-",       "-", "mary",    "edward", "mary", "mary", "jaimie", "edward"],
+        ["-", "-", "mary", "edward", "mary", "mary", "jaimie", "edward"],
 
         ["young", "john", "tod", "emily", "mary"],
         [12, 4, 2, 5, 10]
-
     ))
