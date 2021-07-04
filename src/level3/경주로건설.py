@@ -24,6 +24,8 @@ def solution(board):
                     board[nx][ny][i] = ncost
                     q.append((nx, ny, ncost, i))
 
+    print(board)
+
     return min(board[-1][-1].values())
 
 if __name__ == '__main__':
