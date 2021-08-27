@@ -1,13 +1,13 @@
 def extract(string):
-    count, stack = 0, []
+    cnt, stack = 0, []
     for ch in string:
         if (ch == '0' and 2 <= len(stack)
             and stack[-1] == stack[-2] == '1'):
             del stack[-2:]
-            count += 1
+            cnt += 1
         else:
             stack.append(ch)
-    return ''.join(stack), count
+    return ''.join(stack), cnt
 
 def solution(s):
     answer = []
