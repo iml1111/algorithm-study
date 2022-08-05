@@ -1,9 +1,10 @@
+"""https://www.acmicpc.net/problem/1034"""
 import sys
 
 
 def solution(n, m, arr, num):
     all = set([i for i in range(n)])
-    
+
 
 
 if __name__ == '__main__':
