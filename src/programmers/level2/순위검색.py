@@ -23,7 +23,6 @@ def refine_info(infos):
 
     return result
 
-
 def solution(info, query):
     info = refine_info(info)
     answer = []
