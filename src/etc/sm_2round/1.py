@@ -1,7 +1,7 @@
 from collections import deque
 
 def is_way(node):
-	return node not in {"1", "@"}
+	return node not in ("1", "@")
 
 def get_start_idx(board, n, m):
 	for idx in range(n):
@@ -57,5 +57,14 @@ if __name__ == '__main__':
 			"001110",
 			"030100",
 			"400100",
+		]
+	))
+	print(solution(
+		[
+			"001040",
+			"101000",
+			"001110",
+			"030100",
+			"000200",
 		]
 	))
